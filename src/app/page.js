@@ -1,7 +1,7 @@
-'use client'
-import { useState, useEffect } from 'react';
-import { debounce } from 'lodash';
-import Link from 'next/link';
+"use client";
+import { useState, useEffect } from "react";
+import { debounce } from "lodash";
+import Link from "next/link";
 
 export default function ArticlesPage() {
   const [articles, setArticles] = useState([]);
@@ -13,12 +13,14 @@ export default function ArticlesPage() {
     async function fetchArticles() {
       setIsLoading(true);
       try {
-        const response = await fetch(`https://dev.to/api/articles?per_page=12&page=${page}`);
+        const response = await fetch(
+          `https://dev.to/api/articles?per_page=12&page=${page}`
+        );
         const data = await response.json();
-        setArticles(prevArticles => [...prevArticles, ...data]);
+        setArticles((prevArticles) => [...prevArticles, ...data]);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching articles:', error);
+        console.error("Error fetching articles:", error);
         setIsLoading(false);
       }
     }
@@ -36,19 +38,19 @@ export default function ArticlesPage() {
         window.innerHeight + document.documentElement.scrollTop ===
         document.documentElement.offsetHeight
       ) {
-        setPage(prevPage => prevPage + 1);
+        setPage((prevPage) => prevPage + 1);
       }
     }
 
-    window.addEventListener('scroll', debounce(loadMore, 200));
+    window.addEventListener("scroll", debounce(loadMore, 200));
 
-    return () => window.removeEventListener('scroll', loadMore);
+    return () => window.removeEventListener("scroll", loadMore);
   }, []);
 
   function handleSearch(event) {
     const query = event.target.value;
 
-    const filtered = articles.filter(article =>
+    const filtered = articles.filter((article) =>
       article.title.toLowerCase().includes(query.toLowerCase())
     );
 
@@ -67,7 +69,7 @@ export default function ArticlesPage() {
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredArticles.map(article => (
+        {filteredArticles.map((article) => (
           <ArticleCard key={article.id} article={article} />
         ))}
       </div>
@@ -88,9 +90,9 @@ function ArticleCard({ article }) {
       <img src={article.cover_image} alt="" className="w-full rounded mb-4" />
       <h2 className="text-xl font-bold mb-2">{article.title}</h2>
 
-      <p className="text-gray-500 mb-4">{article.tag_list.join(', ')}</p>
+      <p className="text-gray-500 mb-4">{article.tag_list.join(", ")}</p>
 
-      <Link href={`/articles/${article.id}`}>
+      <Link href={`./${article.path}`}>
         <div className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
           Read more
         </div>
