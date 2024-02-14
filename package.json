@@ -1,1 +1,0 @@
-{"name":".","version":"0.1.0","description":"Fancy Next.js app","scripts":{"dev":"next","build":"next build","start":"next start","build:static":"next build && next out"}}
