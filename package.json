@@ -11,8 +11,10 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "next": "14.1.0",
+    "next-seo": "^6.4.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
