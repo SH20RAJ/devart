@@ -20,6 +20,8 @@ export default () => {
         <a href="#">Account</a>
       </li>
     </ul>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWL59Y4TR7"></script>
+
   </nav>
     );
 }
