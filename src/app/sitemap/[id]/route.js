@@ -1,75 +1,58 @@
 // import fetch from 'isomorphic-fetch'; // Import fetch
 // import { getArticlesFromDevTo } from 'someFunctions'; // Replace with your actual function to fetch articles
+function generateRandomNumber(min, max) {
+  // Math.random() generates a random number between 0 and 1
+  // We multiply it by (max - min + 1) to include the max value,
+  // then add min to ensure the number falls within the desired range.
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Usage example to generate a random number between 1 and 10000
+const randomNumber = generateRandomNumber(1, 1000);
+console.log(randomNumber);
 
 // Mock function to fetch articles (replace this with your actual implementation)
-let getArticlesFromDevTo = async () => {
-    const response = await fetch(
-      `https://dev.to/api/articles/latest/?per_page=1000&page=1`
-    );
-    const data = await response.json();
-    return data;
-  };
-  
-  export async function GET(req) {
+let getArticlesFromDevTo = async (params) => {
+  console.log(params);
+  const response = await fetch(
+    `https://dev.to/api/articles/latest/?per_page=1000&page=${randomNumber}`
+  );
+  const data = await response.json();
+  return data;
+};
+
+export async function GET(req) {
     if (req.method === 'GET') {
       try {
-        const sitemaps = [];
-        let currentPage = 1;
-        const perPage = 10; // Number of articles per sitemap
+        // Fetch articles from Dev.to or your database
+        const articles = await getArticlesFromDevTo();
   
-        // Fetch articles in batches and generate sitemaps
-        while (true) {
-          const response = await fetch(
-            `https://dev.to/api/articles/latest/?per_page=${perPage}&page=${currentPage}`
-          );
-          const data = await response.json();
+        // Start building the XML
+        let xml = '<?xml version="1.0" encoding="UTF-8"?>';
+        xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
   
-          if (data.length === 0) {
-            break; // No more articles to fetch
-          }
-  
-          // Start building the XML for the current sitemap
-          let xml = '<?xml version="1.0" encoding="UTF-8"?>';
-          xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-  
-          // Add each article URL to the current sitemap
-          data.forEach((article) => {
-            xml += '<url>';
-            xml += `<loc>https://yourwebsite.com/${article.path}</loc>`; // Modify URL structure as needed
-            xml += `<lastmod>${new Date(article.published_at).toISOString()}</lastmod>`; // Use published date as last modified
-            xml += '<changefreq>weekly</changefreq>'; // You can adjust the change frequency
-            xml += '<priority>0.8</priority>'; // Priority can be adjusted based on the importance of the page
-            xml += '</url>';
-          });
-  
-          xml += '</urlset>';
-  
-          // Add the current sitemap to the collection
-          sitemaps.push(xml);
-  
-          currentPage++;
-        }
-  
-        // Generate the sitemap index
-        let sitemapIndex = '<?xml version="1.0" encoding="UTF-8"?>';
-        sitemapIndex += '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-  
-        sitemaps.forEach((sitemap, index) => {
-          sitemapIndex += `<sitemap><loc>https://yourwebsite.com/sitemaps/sitemap-${index + 1}.xml</loc></sitemap>`;
+        // Add each article URL to the sitemap
+        articles.forEach((article) => {
+          xml += '<url>';
+          xml += `<loc>https://dev-art.vercel.app${article.path}</loc>`; // Modify URL structure as needed
+          xml += `<lastmod>${new Date(article.published_at).toISOString()}</lastmod>`; // Use published date as last modified
+          xml += '<changefreq>weekly</changefreq>'; // You can adjust the change frequency
+          xml += '<priority>0.8</priority>'; // Priority can be adjusted based on the importance of the page
+          xml += '</url>';
         });
   
-        sitemapIndex += '</sitemapindex>';
+        xml += '</urlset>';
   
         // Set the response headers and status
-        return new Response(sitemapIndex, {
+        return new Response(xml, {
           headers: {
             'Content-Type': 'application/xml',
           },
           status: 200,
         });
       } catch (error) {
-        console.error('Error generating sitemaps:', error);
-        return new Response('Error generating sitemaps', {
+        console.error('Error generating sitemap:', error);
+        return new Response('Error generating sitemap', {
           status: 500,
         });
       }
