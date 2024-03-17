@@ -13,8 +13,8 @@ export default async function ArticlePage({ params }) {
       </Head>
       <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/default.min.css"/>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script>
+      {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> */}
       <header className="bg-gray-900 text-white py-4">
         <div className="container mx-auto">
           {/* Your navigation bar content here */}
