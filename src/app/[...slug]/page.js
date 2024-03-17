@@ -2,10 +2,13 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav"
 
-
-export const metadata = {
-    title: 'Article Title',
+let metadata = {
+    title: "Article",
     description: 'Article Description',
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title: 'Article Title',
       description: 'Article Description',
@@ -72,6 +75,19 @@ export default async ({params}) => {
     const res = await fetch(api);
     const data = await res.json();
     const { title, description, cover_image, tag_list, reading_time_minutes, public_reactions_count } = data;
+    metadata.title = title;
+    metadata.description = description;
+    metadata.openGraph.title = title;
+    metadata.openGraph.description = description;
+    metadata.openGraph.images[0].url = cover_image;
+    // metadata.article.publishedTime = description;
+    // metadata.article.modifiedTime = description;
+    metadata.description = description;
+    metadata.twitter.title = title;
+    metadata.twitter.description = description;
+    metadata.twitter.images[0] = cover_image;
+    metadata.description = description;
+    metadata.description = description;
 
 
 
@@ -170,3 +186,5 @@ export default async ({params}) => {
   <Footer/>
 </>)
 }
+
+export {metadata};
