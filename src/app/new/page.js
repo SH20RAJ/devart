@@ -1,14 +1,14 @@
-import Head from 'next/head'
- 
-function IndexPage() {
+import Head from 'next/head';
+
+export default function MyPage() {
   return (
-    <div>
+    <>
       <Head>
-        <title>My page title</title>
+        <title>My Page Title</title>
+        <meta name="description" content="My page description" />
+        {/* Add other meta tags here */}
       </Head>
-      <p>Hello world!</p>
-    </div>
-  )
+      {/* Rest of your page content */}
+    </>
+  );
 }
- 
-export default IndexPage

@@ -15,7 +15,7 @@ export default function ArticlesPage() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://dev.to/api/articles?per_page=12&page=${page}`
+          `https://dev.to/api/articles/latest/?per_page=12&page=${page}`
         );
         const data = await response.json();
         setArticles((prevArticles) => [...prevArticles, ...data]);
@@ -88,7 +88,7 @@ function ArticleCard({ article }) {
   return (
     <div className="card">
       <Link href={`./${article.path}`}>
-        <img src={article.cover_image} alt="Image" />
+        <img src={article.cover_image || "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"} alt="Image" />
         <div className="card-title">{article.title}</div>
         <div className="line"></div>
         <p className="text-gray-500 mb-4">{article.tag_list.join(", ")}</p>
