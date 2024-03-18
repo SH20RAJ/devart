@@ -452,3 +452,14 @@ footer {
   display: inline-block;
 
 }
+
+. highlight__panel {
+	display: none;
+}
+
+.highlight.js-code-highlight {
+	overflow: auto;
+	color: red;
+	background: black;
+	padding: 10px;
+}
