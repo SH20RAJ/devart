@@ -169,7 +169,7 @@ export default async ({ params }) => {
             Load More Posts
           </button>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between overflow-hidden">
           {await filteredArticles2.map((article) => (
             <span>
               {" "}
