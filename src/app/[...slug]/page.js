@@ -80,7 +80,7 @@ export default async ({params}) => {
     const api = `https://dev.to/api/articles/${params.slug[0]}/${params.slug[1]}`;
     const res = await fetch(api);
     const data = await res.json();
-    const { title, description, cover_image,social_image, user, tag_list, reading_time_minutes, public_reactions_count } = data;
+    const { title, description, cover_image,social_image, user, tag_list, reading_time_minutes, readable_publish_date, public_reactions_count } = data;
     metadata2.title = title;
     metadata2.description = description;
     metadata2.openGraph.title = title;
@@ -120,7 +120,12 @@ export default async ({params}) => {
   <main>
     <div className="postcontainer">
         <h2 id="title">{data.title}</h2>
-        <span><Link href={"../"+ data.user.username}>{data.user.name}</Link></span>
+        <span class="post-data">
+          <Link href={"../"+ data.user.username}> <img width={40} class="author-img" src={ user.profile_image_90} alt="" /> {data.user.name}</Link> - {data.readable_publish_date} -    
+        {'   '}<a href={"https://visitorbadge.io/status?path="+data.path}>
+            <img loading="lazy" className="inline-block" src={"https://api.visitorbadge.io/api/visitors?path="+data.path} />
+        </a>
+   </span>
         <article dangerouslySetInnerHTML={{ __html: data.body_html }} >
         </article>
       <div className="comments"></div>

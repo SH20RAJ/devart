@@ -440,3 +440,15 @@ footer {
     visibility: hidden;
   }
 }
+
+.author-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.inline-block {
+  display: inline-block;
+
+}
