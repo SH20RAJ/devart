@@ -525,3 +525,11 @@ code {
     overflow-x: auto;
   }
 }
+
+
+/* Images */
+
+.article-body-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
