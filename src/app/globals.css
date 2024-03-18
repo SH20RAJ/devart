@@ -469,7 +469,8 @@ code {
 	padding: 10px;
 }
 .pl-kos,.k,.nx{color:pink}
-.pl-ent,.p{color:hotpink}
+.pl-ent,.p,.na{color:hotpink}
 .pl-s,.s,.s1{color:aqua}
 .pl-c1,.o,.nc{color:white}
-.pl-c,.dl,.nf{color:green}
+.pl-c,.c{color:green}
+.dl,.nf,.nt{color:yellow}
