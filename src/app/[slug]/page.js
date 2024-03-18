@@ -10,13 +10,17 @@ export function generateRandomNumber(min, max) {
   // then add min to ensure the number falls within the desired range.
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+let startdata = "";
 
-export default function ArticlesPage({params}) {
+export default function ArticlesPage({ params }) {
+
+    
+
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [filteredArticles, setFilteredArticles] = useState([]);
-console.log(params.slug)
+  console.log(params.slug);
   useEffect(() => {
     async function fetchArticles() {
       setIsLoading(true);
@@ -95,7 +99,13 @@ function ArticleCard({ article }) {
   return (
     <div className="card">
       <Link href={`./${article.path}`}>
-        <img src={article.social_image || "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"} alt="Image" />
+        <img
+          src={
+            article.social_image ||
+            "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"
+          }
+          alt="Image"
+        />
         <div className="card-title">{article.title}</div>
         <div className="line"></div>
         <p className="text-gray-500 mb-4">{article.tag_list.join(", ")}</p>
