@@ -458,16 +458,18 @@ footer {
 .highlight__panel.js-actions-panel {
 	display: none;
 }
-
+code {
+	color: azure;
+}
 .highlight.js-code-highlight {
 	border-left: 2px solid aqua;
 	overflow: auto;
-	color: red;
+	color: azure;
 	background: black;
 	padding: 10px;
 }
-.pl-kos{color:pink}
-.pl-ent{color:hotpink}
-.pl-s{color:aqua}
-.pl-c1{color:white}
-.pl-c{color:green}
+.pl-kos,.k,.nx{color:pink}
+.pl-ent,.p{color:hotpink}
+.pl-s,.s,.s1{color:aqua}
+.pl-c1,.o,.nc{color:white}
+.pl-c,.dl,.nf{color:green}
