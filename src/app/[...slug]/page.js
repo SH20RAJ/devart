@@ -126,6 +126,7 @@ export default async ({params}) => {
             <img loading="lazy" className="inline-block" src={"https://api.visitorbadge.io/api/visitors?path="+data.path} />
         </a>
    </span>
+   <hr />
         <article dangerouslySetInnerHTML={{ __html: data.body_html }} >
         </article>
       <div className="comments"></div>
