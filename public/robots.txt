@@ -1,5 +1,10 @@
 User-agent: *
 Disallow:
 
+Sitemap: https://www.forn.fun/sitemap.xml
+Sitemap: https://www.forn.fun/sitemap
+Sitemap: /sitemap2
+
+
 User-agent: *
 Allow: /sitemap2

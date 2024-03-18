@@ -460,6 +460,8 @@ footer {
 }
 code {
 	color: azure;
+  background: black;
+  padding: 2px;
 }
 .highlight.js-code-highlight {
 	border-left: 2px solid aqua;
