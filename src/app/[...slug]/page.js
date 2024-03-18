@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav"
 import Link from "next/link";
@@ -81,7 +80,7 @@ export default async ({params}) => {
     const api = `https://dev.to/api/articles/${params.slug[0]}/${params.slug[1]}`;
     const res = await fetch(api);
     const data = await res.json();
-    const { title, description, cover_image,social_image, tag_list, reading_time_minutes, public_reactions_count } = data;
+    const { title, description, cover_image,social_image, user, tag_list, reading_time_minutes, public_reactions_count } = data;
     metadata2.title = title;
     metadata2.description = description;
     metadata2.openGraph.title = title;
@@ -96,16 +95,22 @@ export default async ({params}) => {
     metadata2.description = description;
     metadata2.description = description;
 
-        
-          const response = await fetch(
-            `https://dev.to/api/articles/latest/?per_page=11&page=${generateRandomNumber(1,1000)}`
-          );
+  
+    const response = await fetch(
+      `https://dev.to/api/articles/latest/?per_page=11&page=${generateRandomNumber(1,1000)}`
+    );
 
-          const data2 = await response.json();
-          let filteredArticles = await data2;
-          console.log(data)
+    const data2 = await response.json();
+    let filteredArticles = await data2;
+    // console.log(data)
         
+    const response2 = await fetch(
+      `https://dev.to/api/articles/latest/?per_page=111&page=${generateRandomNumber(1,1000)}`
+    );
 
+    const data22 = await response2.json();
+    let filteredArticles2 = await data22;
+    // console.log(data2)
 
     
     return (
@@ -115,6 +120,7 @@ export default async ({params}) => {
   <main>
     <div className="postcontainer">
         <h2 id="title">{data.title}</h2>
+        <span><Link href={"../"+ data.user.username}>{data.user.name}</Link></span>
         <article dangerouslySetInnerHTML={{ __html: data.body_html }} >
         </article>
       <div className="comments"></div>
@@ -129,6 +135,11 @@ export default async ({params}) => {
       </button>
     </div>
   </main>
+  <div className="flex justify-between">
+  {await filteredArticles2.map((article) => (
+             <span> <Link href={`../..${article.path}`}>.</Link></span>
+            ))}
+            </div>
   <Footer/>
 </>)
 }

@@ -71,7 +71,7 @@ export default function ArticlesPage() {
       <Nav />
 
       <main className="postscontainer">
-        <h2>Latest Posts</h2>
+        <h1>Latest Posts</h1>
         <div className="container">
           <div className="latestposts">
             {filteredArticles.map((article) => (
@@ -82,7 +82,8 @@ export default function ArticlesPage() {
       </main>
       {isLoading && (
         <div className="text-center mt-8">
-          <p>Loading...</p>
+          <button class="btn" id="load_more" onclick="getMorePosts()">Loading...
+            </button>
         </div>
       )}
       <Footer />
