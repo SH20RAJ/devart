@@ -6,16 +6,11 @@ function generateRandomNumber(min, max) {
   // then add min to ensure the number falls within the desired range.
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-// Usage example to generate a random number between 1 and 10000
-const randomNumber = generateRandomNumber(1, 1000);
-console.log(randomNumber);
-
+console.log(generateRandomNumber(1,1000))
 // Mock function to fetch articles (replace this with your actual implementation)
-let getArticlesFromDevTo = async (params) => {
-  console.log(params);
+let getArticlesFromDevTo = async () => {
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=1000&page=${randomNumber}`
+    `https://dev.to/api/articles/latest/?per_page=2000&page=${generateRandomNumber(1,1000).toString() || 54}`
   );
   const data = await response.json();
   return data;
@@ -34,7 +29,7 @@ export async function GET(req) {
         // Add each article URL to the sitemap
         articles.forEach((article) => {
           xml += '<url>';
-          xml += `<loc>https://dev-art.vercel.app${article.path}</loc>`; // Modify URL structure as needed
+          xml += `<loc>https://www.forn.fun${article.path}</loc>`; // Modify URL structure as needed
           xml += `<lastmod>${new Date(article.published_at).toISOString()}</lastmod>`; // Use published date as last modified
           xml += '<changefreq>weekly</changefreq>'; // You can adjust the change frequency
           xml += '<priority>0.8</priority>'; // Priority can be adjusted based on the importance of the page
