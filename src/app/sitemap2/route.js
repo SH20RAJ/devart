@@ -4,7 +4,7 @@
 // Mock function to fetch articles (replace this with your actual implementation)
 let getArticlesFromDevTo = async () => {
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=10000&page=4`
+    `https://dev.to/api/articles/latest/?per_page=1000&page=1`
   );
   const data = await response.json();
   return data;
