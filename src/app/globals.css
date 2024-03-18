@@ -474,3 +474,52 @@ code {
 .pl-c1,.o,.nc{color:white}
 .pl-c,.c{color:green}
 .dl,.nf,.nt{color:yellow}
+
+
+
+/* Table Wrapper Styles */
+.table-wrapper-paragraph {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Table Styles */
+.table-wrapper-paragraph table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Table Header Styles */
+.table-wrapper-paragraph th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table Body Styles */
+.table-wrapper-paragraph td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alternating Row Colors */
+.table-wrapper-paragraph tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover Effect on Rows */
+.table-wrapper-paragraph tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .table-wrapper-paragraph {
+    overflow-x: auto;
+  }
+}
