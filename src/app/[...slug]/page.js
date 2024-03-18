@@ -169,7 +169,9 @@ export default async ({ params }) => {
             Load More Posts
           </button>
         </div>
-        <div className="flex justify-between overflow-hidden">
+
+      </main>
+      <div class="dots flex justify-between overflow-hidden">
           {await filteredArticles2.map((article) => (
             <span>
               {" "}
@@ -177,7 +179,6 @@ export default async ({ params }) => {
             </span>
           ))}
         </div>
-      </main>
 
       <Footer />
     </>
