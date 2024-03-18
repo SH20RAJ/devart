@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav"
+// import { metadata } from "../layout";
 
-let metadata = {
+let metadata2 = {
     title: "Article",
     description: 'Article Description',
     robots: {
@@ -75,19 +76,19 @@ export default async ({params}) => {
     const res = await fetch(api);
     const data = await res.json();
     const { title, description, cover_image, tag_list, reading_time_minutes, public_reactions_count } = data;
-    metadata.title = title;
-    metadata.description = description;
-    metadata.openGraph.title = title;
-    metadata.openGraph.description = description;
-    metadata.openGraph.images[0].url = cover_image;
-    // metadata.article.publishedTime = description;
-    // metadata.article.modifiedTime = description;
-    metadata.description = description;
-    metadata.twitter.title = title;
-    metadata.twitter.description = description;
-    metadata.twitter.images[0] = cover_image;
-    metadata.description = description;
-    metadata.description = description;
+    metadata2.title = title;
+    metadata2.description = description;
+    metadata2.openGraph.title = title;
+    metadata2.openGraph.description = description;
+    metadata2.openGraph.images[0].url = cover_image;
+    // metadata2.article.publishedTime = description;
+    // metadata2.article.modifiedTime = description;
+    metadata2.description = description;
+    metadata2.twitter.title = title;
+    metadata2.twitter.description = description;
+    metadata2.twitter.images[0] = cover_image;
+    metadata2.description = description;
+    metadata2.description = description;
 
 
 
@@ -186,5 +187,5 @@ export default async ({params}) => {
   <Footer/>
 </>)
 }
-
+let metadata = metadata2;
 export {metadata};
