@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav"
+import Link from "next/link";
 // import { metadata } from "../layout";
 
 let metadata2 = {
@@ -67,7 +68,12 @@ let metadata2 = {
     ],
   };
   
-
+  export function generateRandomNumber(min, max) {
+    // Math.random() generates a random number between 0 and 1
+    // We multiply it by (max - min + 1) to include the max value,
+    // then add min to ensure the number falls within the desired range.
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   
 
 
@@ -90,6 +96,15 @@ export default async ({params}) => {
     metadata2.description = description;
     metadata2.description = description;
 
+        
+          const response = await fetch(
+            `https://dev.to/api/articles/latest/?per_page=11&page=${generateRandomNumber(1,1000)}`
+          );
+
+          const data2 = await response.json();
+          let filteredArticles = await data2;
+          console.log(data)
+        
 
 
     
@@ -105,80 +120,10 @@ export default async ({params}) => {
       <div className="comments"></div>
     </div>
     <div className="sidebar">
-      <div className="toc">
-        <h1>Table of contents</h1>
-        <ul>
-          <li>Practices that contribute to unused CSS</li>
-          <li>Frameworks and libraries</li>
-          <li>Continuous changes</li>
-          <li>How to manually remove unused CSS</li>
-          <li>PurifyCSS</li>
-          <li>UnCSS</li>
-          <li>CleanCSS</li>
-          <li>Tabifier</li>
-          <li>PurgeCSS</li>
-          <li>Conclusion</li>
-          <li>LogRocket Galileo logo</li>
-          <li>Introducing Galileo AI</li>
-          <li>
-            LogRocket’s Galileo AI watches every session, surfacing impactful
-            user struggle and key behavior patterns.
-          </li>
-          <li>READ THEBLOG POST</li>
-        </ul>
-      </div>
-      <div className="card">
-        <a href="#">
-          <img
-            src="https://cdn.discordapp.com/attachments/1209460718370553896/1213471682380169266/logo.png?ex=65f59892&is=65e32392&hm=8c77f629a48345775c03ef2eb99270968528bf42f5a1388fffea38213b69482f&"
-            alt="Image"
-            srcSet=""
-          />
-          <div className="card-title">
-            Sample POST 1 - Title of the post from BlogX
-          </div>
-        </a>
-      </div>
-      <div className="card">
-        <a href="#">
-          <img src="https://placehold.co/600x400" alt="Image" srcSet="" />
-          <div className="card-title">
-            Sample POST 2 - Title of the post from BlogX
-          </div>
-        </a>
-      </div>
-      <div className="card">
-        <a href="#">
-          <img src="https://placehold.co/600x400" alt="Image" srcSet="" />
-          <div className="card-title">
-            Sample POST 3 - Title of the post from BlogX
-          </div>
-        </a>
-      </div>
-      <div className="card">
-        <a href="#">
-          <img src="https://placehold.co/600x400" alt="Image" srcSet="" />
-          <div className="card-title">
-            Sample POST 4 - Title of the post from BlogX
-          </div>
-        </a>
-      </div>
-      <div className="card">
-        <a href="#">
-          <img src="https://placehold.co/600x400" alt="Image" srcSet="" />
-          <div className="card-title">
-            Sample POST 5 - Title of the post from BlogX
-          </div>
-        </a>
-      </div>
-      <div className="card">
-        <a href="#">
-          <img src="https://placehold.co/600x400" alt="Image" srcSet="" />
-          <div className="card-title">
-            Sample POST 6 - Title of the post from BlogX
-          </div>
-        </a>
-      </div>
+    {await filteredArticles.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+      
       <button className="btn" id="load_more" onclick="getMorePosts()">
         Load More Posts
       </button>
@@ -189,3 +134,16 @@ export default async ({params}) => {
 }
 let metadata = metadata2;
 export {metadata};
+
+function ArticleCard({ article }) {
+  return (
+    <div className="card">
+      <Link href={`../../${article.path}`}>
+        <img src={article.social_image || "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"} alt="Image" />
+        <div className="card-title">{article.title}</div>
+        <div className="line"></div>
+        <p className="text-gray-500 mb-4">{article.tag_list.join(", ")}</p>
+      </Link>{" "}
+    </div>
+  );
+}
