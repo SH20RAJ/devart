@@ -95,7 +95,7 @@ export default function ArticlesPage() {
 function ArticleCard({ article }) {
   return (
     <div className="card">
-      <Link href={`./${article.path}`}>
+      <Link href={`./.${article.path}`}>
         <img src={article.social_image || "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"} alt="Image" />
         <div className="card-title">{article.title}</div>
         <div className="line"></div>
