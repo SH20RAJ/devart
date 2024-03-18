@@ -1,10 +1,12 @@
 // import fetch from 'isomorphic-fetch'; // Import fetch
 // import { getArticlesFromDevTo } from 'someFunctions'; // Replace with your actual function to fetch articles
 
+import { NextResponse } from "next/server";
+
 // Mock function to fetch articles (replace this with your actual implementation)
 let getArticlesFromDevTo = async () => {
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=1000&page=1`
+    `https://dev.to/api/articles/latest/?per_page=100&page=1`
   );
   const data = await response.json();
   return data;
@@ -18,7 +20,7 @@ export async function GET(req) {
   
         // Start building the XML
         let xml = '<?xml version="1.0" encoding="UTF-8"?>';
-        xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`;
   
         // Add each article URL to the sitemap
         articles.forEach((article) => {
@@ -33,11 +35,17 @@ export async function GET(req) {
         xml += '</urlset>';
   
         // Set the response headers and status
-        return new Response(xml, {
+        return new NextResponse(xml, {
           headers: {
             'Content-Type': 'application/xml',
           },
           status: 200,
+
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          }
         });
       } catch (error) {
         console.error('Error generating sitemap:', error);
