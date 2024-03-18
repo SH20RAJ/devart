@@ -115,10 +115,7 @@ export default async ({ params }) => {
   // console.log(data)
 
   const response2 = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=111&page=${generateRandomNumber(
-      1,
-      1000
-    )}`
+    `https://dev.to/api/articles?username=${params.slug[0]}&per_page=900`
   );
 
   const data22 = await response2.json();
