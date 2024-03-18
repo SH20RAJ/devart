@@ -453,13 +453,21 @@ footer {
 
 }
 
-. highlight__panel {
+
+/* Code Highlighting Added */
+.highlight__panel.js-actions-panel {
 	display: none;
 }
 
 .highlight.js-code-highlight {
+	border-left: 2px solid aqua;
 	overflow: auto;
 	color: red;
 	background: black;
 	padding: 10px;
 }
+.pl-kos{color:pink}
+.pl-ent{color:hotpink}
+.pl-s{color:aqua}
+.pl-c1{color:white}
+.pl-c{color:green}
