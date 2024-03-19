@@ -106,6 +106,7 @@ main {
   margin-right: 10px;
   overflow-x: hidden;
   height: fit-content;
+  min-width: 55%;
 }
 blockquote {
   background: var(--bbg);
