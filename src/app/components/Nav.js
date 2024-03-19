@@ -11,10 +11,10 @@ export default () => {
         <a href="#">Save</a>
       </li>
       <li>
-        <a href="#">Embed</a>
+        <a href="/api/sitemap">Embed</a>
       </li>
       <li>
-        <a href="#">Login</a>
+        <a href="/sh20raj">SH20RAJ</a>
       </li>
       <li>
         <a href="#">Account</a>
