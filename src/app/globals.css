@@ -65,7 +65,7 @@ nav ul {
 br {
   content: "\A";
   white-space: pre;
-  line-height: 150px;
+  line-height: 10px;
 }
 
 nav ul li a {
@@ -122,7 +122,7 @@ blockquote {
 .postcontainer ul {
   margin: 10px 40px;
 }
-.postcontainer img {
+.postcontainer img, .postcontainer iframe {
   max-width: 80%;
 }
 
