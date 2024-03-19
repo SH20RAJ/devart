@@ -172,7 +172,7 @@ export default async ({ params }) => {
           {await filteredArticles2.map((article) => (
             <span>
               {" "}
-              <Link href={`../..${article.path}`}>.</Link>
+              <Link href={`${article.path}`}>.</Link>
             </span>
           ))}
         </div>
@@ -187,7 +187,7 @@ export { metadata };
 function ArticleCard({ article }) {
   return (
     <div className="card">
-      <Link href={`../..${article.path}`}>
+      <Link href={`${article.path}`}>
         <img
           src={
             article.social_image ||
