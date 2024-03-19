@@ -10,7 +10,7 @@ console.log(generateRandomNumber(1,1000))
 // Mock function to fetch articles (replace this with your actual implementation)
 let getArticlesFromDevTo = async () => {
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=100&page=${generateRandomNumber(1,1000).toString() || 54}`
+    `https://dev.to/api/articles/latest/?per_page=10000&page=${generateRandomNumber(1,1000).toString() || 54}`
   );
   const data = await response.json();
   return data;
