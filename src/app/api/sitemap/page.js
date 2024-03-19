@@ -34,7 +34,7 @@ export default async () => {
           ))}
         </div> */}
 
-    </>https://www.forn.fun/devteam/what-are-you-learning-about-this-weekend-355j
+    </>
   );
 };
 
