@@ -26,7 +26,7 @@ export default function ArticlesPage({ params }) {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://dev.to/api/articles?username=${params.slug}&per_page=100&page=${page}&random=${Math.random()}`
+          `https://dev.to/api/articles?username=${params.slug}&per_page=100&page=${page}`,{ cache: 'no-store' }
         );
         const data = await response.json();
         setArticles((prevArticles) => [...prevArticles, ...data]);

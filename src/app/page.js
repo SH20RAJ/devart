@@ -22,7 +22,7 @@ export default function ArticlesPage() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://dev.to/api/articles/latest/?per_page=12&page=${page}`
+          `https://dev.to/api/articles/latest/?per_page=22&page=${page}`
         );
         const data = await response.json();
         setArticles((prevArticles) => [...prevArticles, ...data]);
