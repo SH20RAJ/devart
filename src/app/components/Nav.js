@@ -8,17 +8,17 @@ export default () => {
     </a>
     <ul>
       <li>
-        <a href="#">Save</a>
+        <Link href="/devart">About</Link>
       </li>
       <li>
-        <a href="/api/sitemap">Embed</a>
+        <a href="/api/sitemap">Sitemap</a>
       </li>
       <li>
         <a href="/sh20raj">SH20RAJ</a>
       </li>
-      <li>
+      {/* <li>
         <a href="#">Account</a>
-      </li>
+      </li> */}
     </ul>
 
   </nav>
