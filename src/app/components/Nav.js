@@ -14,9 +14,9 @@ export default () => {
       <li>
         <a href="/api/sitemap">Sitemap</a>
       </li>
-      <li>
+      {/* <li>
         <a href="/sh20raj">SH20RAJ</a>
-      </li>
+      </li> */}
       {/* <li>
         <a href="#">Account</a>
       </li> */}
