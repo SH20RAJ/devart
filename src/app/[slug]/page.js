@@ -17,7 +17,7 @@ export default function ArticlesPage({ params }) {
     
 
   const [articles, setArticles] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [filteredArticles, setFilteredArticles] = useState([]);
   console.log(params.slug);
@@ -26,8 +26,7 @@ export default function ArticlesPage({ params }) {
       setIsLoading(true);
       try {
         const response = await fetch(
-          // `https://dev.to/api/articles?username=${params.slug}&per_page=10&page=${page}`
-          `https://dev.to/api/articles/latest?username=${params.slug}`
+          `https://dev.to/api/articles?username=${params.slug}&per_page=100&page=${page}`,{ cache: 'no-store' }
         );
         const data = await response.json();
         setArticles((prevArticles) => [...prevArticles, ...data]);
