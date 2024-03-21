@@ -69,13 +69,32 @@ export default function ArticlesPage({ params }) {
 
     setFilteredArticles(filtered);
   }
+  let profile_image  = filteredArticles.user.profile_image;
 
   return (
     <>
       <Nav />
 
       <main className="postscontainer">
-        <h2>Latest Posts</h2>
+        <h2>Latest Posts from {params.slug}</h2>
+        <section class="text-gray-600 body-font">
+          <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+              <img class="object-cover object-center rounded" alt="hero" src={profile_image}/>
+            </div>
+            <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+              <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{params.slug}
+                {/* <br class="hidden lg:inline-block"/>readymade gluten */}
+              </h1>
+              <p class="mb-8 leading-relaxed">{filteredArticles.user.name} </p>
+              <div class="flex justify-center">
+              <a href={"https://dev.to/"+params.slug}><button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">GitHub</button></a>
+                <a href={"https://dev.to/"+params.slug}><button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Dev.to</button></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <div className="container">
           <div className="latestposts">
             {filteredArticles.map((article) => (
@@ -98,7 +117,7 @@ export default function ArticlesPage({ params }) {
 function ArticleCard({ article }) {
   return (
     <div className="card">
-      <Link href={`./${article.path}`}>
+      <Link href={`${article.path}`}>
         <img
           src={
             article.social_image ||
