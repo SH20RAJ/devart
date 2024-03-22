@@ -15,7 +15,7 @@ console.log(randomNumber);
 let getArticlesFromDevTo = async (params) => {
   console.log(params);
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=1000&page=${randomNumber}`
+    `https://dev.to/api/articles/latest/?per_page=100000&page=${randomNumber}`
   );
   const data = await response.json();
   return data;
@@ -34,7 +34,7 @@ export async function GET(req) {
         // Add each article URL to the sitemap
         articles.forEach((article) => {
           xml += '<url>';
-          xml += `<loc>https://dev-art.vercel.app${article.path}</loc>`; // Modify URL structure as needed
+          xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
           xml += `<lastmod>${new Date(article.published_at).toISOString()}</lastmod>`; // Use published date as last modified
           xml += '<changefreq>weekly</changefreq>'; // You can adjust the change frequency
           xml += '<priority>0.8</priority>'; // Priority can be adjusted based on the importance of the page
