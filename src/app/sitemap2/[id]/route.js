@@ -26,6 +26,7 @@ export async function GET(req) {
       try {
         // Fetch articles from Dev.to or your database
         const articles = await getArticlesFromDevTo();
+        const articles2 = await getArticlesFromDevTo();
   
         // Start building the XML
         let xml = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -33,6 +34,14 @@ export async function GET(req) {
   
         // Add each article URL to the sitemap
         articles.forEach((article) => {
+          xml += '<url>';
+          xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+          xml += `<lastmod>${new Date(article.published_at).toISOString()}</lastmod>`; // Use published date as last modified
+          xml += '<changefreq>weekly</changefreq>'; // You can adjust the change frequency
+          xml += '<priority>0.8</priority>'; // Priority can be adjusted based on the importance of the page
+          xml += '</url>';
+        });
+        articles2.forEach((article) => {
           xml += '<url>';
           xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
           xml += `<lastmod>${new Date(article.published_at).toISOString()}</lastmod>`; // Use published date as last modified
