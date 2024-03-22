@@ -31,24 +31,24 @@ export async function GET(req) {
       let articles2 = await getArticlesFromDevTo(328);
       let articles3 = await getArticlesFromDevTo(39);
       let articles4 = await getArticlesFromDevTo(342);
-      let articles5 = await getArticlesFromDevTo(35);
-      let articles6 = await getArticlesFromDevTo(122);
-      let articles7 = await getArticlesFromDevTo(11);
-      let articles8 = await getArticlesFromDevTo(312);
-      let articles9 = await getArticlesFromDevTo(31);
-      let articles10 = await getArticlesFromDevTo(21);
-      let articles11 = await getArticlesFromDevTo();
-      let articles12 = await getArticlesFromDevTo(2);
-      let articles13 = await getArticlesFromDevTo();
-      let articles14 = await getArticlesFromDevTo(2);
-      let articles15 = await getArticlesFromDevTo();
-      let articles16 = await getArticlesFromDevTo(2);
-      let articles17 = await getArticlesFromDevTo();
-      let articles18 = await getArticlesFromDevTo(2);
-      let articles19 = await getArticlesFromDevTo();
-      let articles20 = await getArticlesFromDevTo(2);
-      let articles21 = await getArticlesFromDevTo();
-      let articles22 = await getArticlesFromDevTo(2);
+      // let articles5 = await getArticlesFromDevTo(35);
+      // let articles6 = await getArticlesFromDevTo(122);
+      // let articles7 = await getArticlesFromDevTo(11);
+      // let articles8 = await getArticlesFromDevTo(312);
+      // let articles9 = await getArticlesFromDevTo(31);
+      // let articles10 = await getArticlesFromDevTo(21);
+      // let articles11 = await getArticlesFromDevTo();
+      // let articles12 = await getArticlesFromDevTo(2);
+      // let articles13 = await getArticlesFromDevTo();
+      // let articles14 = await getArticlesFromDevTo(2);
+      // let articles15 = await getArticlesFromDevTo();
+      // let articles16 = await getArticlesFromDevTo(2);
+      // let articles17 = await getArticlesFromDevTo();
+      // let articles18 = await getArticlesFromDevTo(2);
+      // let articles19 = await getArticlesFromDevTo();
+      // let articles20 = await getArticlesFromDevTo(2);
+      // let articles21 = await getArticlesFromDevTo();
+      // let articles22 = await getArticlesFromDevTo(2);
 
       // Start building the XML
       let xml = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -95,89 +95,89 @@ export async function GET(req) {
         xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
         xml += "</url>";
       });
-      articles5.forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
-      articles6.forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
-      articles7.forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
-      articles8.forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
-      (await getArticlesFromDevTo(24)).forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
+      // articles5.forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
+      // articles6.forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
+      // articles7.forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
+      // articles8.forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
+      // (await getArticlesFromDevTo(24)).forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
 
-      (await getArticlesFromDevTo(32)).forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
+      // (await getArticlesFromDevTo(32)).forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
 
-      (await getArticlesFromDevTo(23)).forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
+      // (await getArticlesFromDevTo(23)).forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
 
-      (await getArticlesFromDevTo(324)).forEach((article) => {
-        xml += "<url>";
-        xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
-        xml += `<lastmod>${new Date(
-          article.published_at
-        ).toISOString()}</lastmod>`; // Use published date as last modified
-        xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
-        xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
-        xml += "</url>";
-      });
+      // (await getArticlesFromDevTo(324)).forEach((article) => {
+      //   xml += "<url>";
+      //   xml += `<loc>https://dev.sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+      //   xml += `<lastmod>${new Date(
+      //     article.published_at
+      //   ).toISOString()}</lastmod>`; // Use published date as last modified
+      //   xml += "<changefreq>weekly</changefreq>"; // You can adjust the change frequency
+      //   xml += "<priority>0.8</priority>"; // Priority can be adjusted based on the importance of the page
+      //   xml += "</url>";
+      // });
 
 
 
