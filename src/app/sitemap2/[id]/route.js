@@ -28,12 +28,12 @@ export async function GET(req) {
     try {
       // Fetch articles from Dev.to or your database
       let articles = await getArticlesFromDevTo(0);
-      let articles2 = await getArticlesFromDevTo(32);
-      let articles3 = await getArticlesFromDevTo(3);
+      let articles2 = await getArticlesFromDevTo(328);
+      let articles3 = await getArticlesFromDevTo(39);
       let articles4 = await getArticlesFromDevTo(342);
       let articles5 = await getArticlesFromDevTo(35);
-      let articles6 = await getArticlesFromDevTo(322);
-      let articles7 = await getArticlesFromDevTo(31);
+      let articles6 = await getArticlesFromDevTo(122);
+      let articles7 = await getArticlesFromDevTo(11);
       let articles8 = await getArticlesFromDevTo(312);
       let articles9 = await getArticlesFromDevTo(31);
       let articles10 = await getArticlesFromDevTo(21);
