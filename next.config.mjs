@@ -5,6 +5,10 @@ const nextConfig = {
           {
             source: '/:path*',
             headers: [
+         {
+          key: 'Cache-Control',
+          value: 'no-store',
+        },
               {
                 key: 'X-Robots-Tag',
                 value: 'index, follow',
