@@ -72,14 +72,18 @@ export default function ArticlesPage() {
       <title>DevArt - Programming Related Articles</title>
 
       <main className="postscontainer">
-        <h1 className="mx-10 text-xl shadow-2xl p-5">Latest Posts</h1>
+        <h1 className="rounded-[12px] m-10 text-xl shadow-2xl p-5">Latest Posts</h1>
         <div className="container">
           <div className="latestposts">
             {filteredArticles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
+          <div className="sidebar">
+          Hii
         </div>
+        </div>
+        
       </main>
       {isLoading && (
         <div className="text-center mt-8">
@@ -96,7 +100,7 @@ export default function ArticlesPage() {
 // Child component to display article card
 function ArticleCard({ article }) {
   return (
-    <div className="card shadow2">
+    <div className="card rounded-[12px] m-10 text-xl shadow-2xl p-5">
       <Link href={`${article.path}`}>
         <img src={article.social_image || "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"} alt="Image" />
         <div className="card-title">{article.title}</div>

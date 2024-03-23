@@ -3,7 +3,7 @@ export default () => {
     return (
         <nav>
     <Link href="../">
-      <div className="logo">
+      <div className="logo animated-border">
         Blog<span style={{ color: "tomato" }}>X</span>
       </div>
     </Link>
