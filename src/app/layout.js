@@ -29,9 +29,9 @@ export default function RootLayout({ children }) {
           src="https://www.googletagmanager.com/gtag/js?id=G-CWL59Y4TR7"
         ></script>
         <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
+          {`window.dataLayer = window.dataLayer || []; function gtag()
           {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-CWL59Y4TR7');
+          gtag('js', new Date()); gtag('config', 'G-CWL59Y4TR7');`}
         </script>
         <script
           type="text/javascript"
