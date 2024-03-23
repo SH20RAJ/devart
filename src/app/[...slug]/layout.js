@@ -2,6 +2,12 @@
 //   title: "op - Programming Related Articles",
 //   description: "Get Programming Related Articles on Daily Basis on DevArt a better place to spend time....",
 // };
+const JsonLd = ({ data }) => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+  />
+);
 
 export default async function RootLayout(pr) {
   let { children, params } = pr;
@@ -27,6 +33,25 @@ export default async function RootLayout(pr) {
         <meta name="twitter:description" content={data.description} />
         <meta name="twitter:image" content={data.social_image} />
         <meta name="robots" content="index, follow" />
+        <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": data.title,
+        "description": data.description,
+        "datePublished": data.published_timestamp,
+        "author": data.user.username,
+        "image": data.social_image,
+        "publisher": "DevArt",
+        "review":
+        {
+          "@type": "Review",
+          "reviewRating":
+          {
+            "@type": "Rating",
+            "ratingValue": "5"
+          }
+        }
+      }} />
       </head>
       <body>{children}</body>
     </html>
