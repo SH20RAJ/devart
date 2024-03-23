@@ -32,7 +32,7 @@ export default function () {
         </a>
       </div>
       <ul class="mt-6 font-semibold text-gray-500">
-        <li class="inline mr-3 pb-1 border-b-2 border-green-500">GitHub</li>
+       <a target="_blank" href="https://github.com/sh20raj"><li class="inline mr-3 pb-1 border-b-2 border-green-500">GitHub</li></a>
         {/* <li class="inline mr-3 pb-1 border-b-2 border-green-500">Dev.to</li> */}
         <a href="https://dev.to/sh20raj" target="_"><li class="inline mr-3 pb-1 border-b-2 border-green-500">Dev.to</li></a>
         <a href="/sh20raj"><li class="inline mr-3 pb-1 border-b-2 border-green-500">DevArt</li></a>
