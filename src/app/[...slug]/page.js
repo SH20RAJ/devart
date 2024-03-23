@@ -61,7 +61,8 @@ export default async ({ params }) => {
                   "https://api.visitorbadge.io/api/visitors?path=" + data.path
                 }
               />
-            </a>
+            </a>{" - "}
+            <a class="devlink" href={"/redirect?url="+data.url} target="_blank">Dev Community</a>
           </span>
           <hr />
           <article
