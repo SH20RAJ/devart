@@ -40,7 +40,7 @@ export default async () => {
 
 function ArticleCard({ article }) {
   return (
-      <a href={`{article.path}`}>
+      <a href={`${article.path}`}>
         {/* <img
           src={
             article.social_image ||
