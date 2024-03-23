@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Card2 from "./components/Card2";
 
 export function generateRandomNumber(min, max) {
   // Math.random() generates a random number between 0 and 1
@@ -70,7 +71,6 @@ export default function ArticlesPage() {
     <>
       <Nav />
       <title>DevArt - Programming Related Articles</title>
-
       <main className="postscontainer">
         <h1 className="rounded-[12px] m-10 text-xl shadow-2xl p-5">
           Latest Posts
@@ -90,6 +90,8 @@ export default function ArticlesPage() {
                 </a>
               </div>
             </div>
+            <Card2/>
+            
           </div>
         </div>
       </main>

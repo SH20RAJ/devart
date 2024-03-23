@@ -288,7 +288,7 @@ footer {
 
 .post {
   width: 100%;
-  background: var(--bbg);
+  /* background: var(--bbg); */
   /* border: 2px solid var(--black); */
   margin: 20px;
   margin-top: 0;
@@ -298,6 +298,7 @@ footer {
   display: block;
   top: 0;
   left: 0;
+  border-radius: 20px;
 }
 
 .postscontainer #load_more {

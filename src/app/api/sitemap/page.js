@@ -5,10 +5,10 @@ export function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default async () => {
+ const Sitemap = async() => {
 
   const response2 = await fetch(
-    `https://dev.to/api/articles?per_page=10000`
+    `https://dev.to/api/articles?per_page=1`
   );
 
   const data22 = await response2.json();
@@ -54,3 +54,4 @@ function ArticleCard({ article }) {
       </a>
   );
 }
+export default  Sitemap;
