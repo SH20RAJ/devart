@@ -38,7 +38,7 @@ export default async ({ params }) => {
       <Nav />
       {/* <link rel="stylesheet" href="https://dev.to/assets/crayons-132fd5353a6887f948f908fecf2c183d4019983fae2c184971fb9deb4e930bfb.css" /> */}
       <main>
-        <div className="shadow1 postcontainer subpixel-antialiased">
+        <div className="shadow1 postcontainer subpixel-antialiased  postcon"  >
           <img class="glassload shadow2 postheadimage" src={data.cover_image} alt="" srcset="" />
           <h2 id="title">{data.title}</h2>
           <span class="post-data">

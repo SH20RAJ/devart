@@ -83,7 +83,7 @@ export default function ArticlesPage() {
           </div>
           <div class="post">
             <div class="usercard">
-              <img src="http://github.com/sh20raj.png" alt="" />
+              <img src="http://github.com/the-shade-project.png" alt="" />
               <div class="username">
                 <a href="http://github.com/sh20raj">
                   <span class="tomato">@</span>SH20RAJ
