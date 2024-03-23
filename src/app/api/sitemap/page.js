@@ -8,7 +8,7 @@ export function generateRandomNumber(min, max) {
  const Sitemap = async() => {
 
   const response2 = await fetch(
-    `https://dev.to/api/articles?per_page=1`
+    `https://dev.to/api/articles?per_page=10000`
   );
 
   const data22 = await response2.json();
