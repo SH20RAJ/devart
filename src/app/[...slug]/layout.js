@@ -1,8 +1,8 @@
 
-export const metadata = {
-  title: "op - Programming Related Articles",
-  description: "Get Programming Related Articles on Daily Basis on DevArt a better place to spend time....",
-};
+// export const metadata = {
+//   title: "op - Programming Related Articles",
+//   description: "Get Programming Related Articles on Daily Basis on DevArt a better place to spend time....",
+// };
 
 export default async function RootLayout(pr) {
   let { children, params } = pr;
