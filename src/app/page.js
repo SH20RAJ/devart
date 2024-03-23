@@ -69,9 +69,10 @@ export default function ArticlesPage() {
   return (
     <>
       <Nav />
+      <title>DevArt - Programming Related Articles</title>
 
       <main className="postscontainer">
-        <h1>Latest Posts</h1>
+        <h1 className="mx-10 text-xl shadow-2xl p-5">Latest Posts</h1>
         <div className="container">
           <div className="latestposts">
             {filteredArticles.map((article) => (
@@ -91,15 +92,16 @@ export default function ArticlesPage() {
   );
 }
 
+
 // Child component to display article card
 function ArticleCard({ article }) {
   return (
-    <div className="card">
+    <div className="card shadow2">
       <Link href={`${article.path}`}>
         <img src={article.social_image || "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"} alt="Image" />
         <div className="card-title">{article.title}</div>
         <div className="line"></div>
-        <p className="text-gray-500 mb-4">{article.tag_list.join(", ")}</p>
+        <p className="text-gray-500 small mb-4">{article.tag_list.join(", ")}</p>
       </Link>{" "}
     </div>
   );

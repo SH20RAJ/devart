@@ -38,7 +38,8 @@ export default async ({ params }) => {
       <Nav />
       {/* <link rel="stylesheet" href="https://dev.to/assets/crayons-132fd5353a6887f948f908fecf2c183d4019983fae2c184971fb9deb4e930bfb.css" /> */}
       <main>
-        <div className="postcontainer">
+        <div className="shadow1 postcontainer subpixel-antialiased">
+          <img class="glassload shadow2 postheadimage" src={data.cover_image} alt="" srcset="" />
           <h2 id="title">{data.title}</h2>
           <span class="post-data">
             <Link href={"../" + data.user.username}>
@@ -106,7 +107,7 @@ function ArticleCard({ article }) {
         />
         <div className="card-title">{article.title}</div>
         <div className="line"></div>
-        <p className="text-gray-500 mb-4">{article.tag_list.join(", ")}</p>
+        <p className="text-gray-200 small mb-4">{article.tag_list.join(", ")}</p>
       </Link>{" "}
     </div>
   );

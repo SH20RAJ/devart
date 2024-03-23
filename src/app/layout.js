@@ -1,11 +1,5 @@
 import "./globals.css";
 
-export const metadata = {
-  title: "DevArt - Programming Related Articles",
-  description:
-    "Get Programming Related Articles on Daily Basis on DevArt a better place to spend time....",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

@@ -11,15 +11,6 @@ export default async function RootLayout(pr) {
   return (
     <html lang="en">
       <head>
-        <meta
-          name="google-site-verification"
-          content="exvbD16MWo-o_oksJDrekaQ_zwY62YGWEA_XdlE5_XM"
-        />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828915420581549"
-          crossorigin="anonymous"
-        ></script>
         <title>{data.title}</title>
         <meta name="description" content={data.description} />
         <meta name="keywords" content={data.tag_list} />
@@ -36,25 +27,6 @@ export default async function RootLayout(pr) {
         <meta name="twitter:description" content={data.description} />
         <meta name="twitter:image" content={data.social_image} />
         <meta name="robots" content="index, follow" />
-        <link
-          rel="shortcut icon"
-          href="https://github.com/fornfun.png"
-          type="image/x-icon"
-        />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-CWL59Y4TR7"
-        ></script>
-        <script>
-          {`window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-CWL59Y4TR7');`}
-        </script>
-        <script
-          type="text/javascript"
-          src="https://platform-api.sharethis.com/js/sharethis.js#property=65fe7f28fb0d80001211056b&product=sop"
-          async="async"
-        ></script>
       </head>
       <body>{children}</body>
     </html>
