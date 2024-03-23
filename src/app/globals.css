@@ -79,7 +79,6 @@ ul {
 }
 
 br {
-  content: "\A";
   white-space: pre;
   line-height: 10px;
 }
@@ -198,6 +197,7 @@ footer {
   backdrop-filter: blur(25px);
   /* border-radius: 20px; */
   /* box-shadow: var(--box-shadow); */
+  border-radius: 20px;
 }
 .card img {
   width: 100%;
@@ -217,7 +217,6 @@ footer {
   box-shadow: var(--box-shadow);
   background: var(--black);
   box-shadow: 50px #000;
-  background: rgb(0, 212, 255);
   background: linear-gradient(
     90deg,
     rgba(0, 212, 255, 0.1643251050420168) 3%,
@@ -501,6 +500,7 @@ code {
   color: azure;
   background: black;
   padding: 10px;
+  border-radius: 20px;
 }
 .pl-kos,
 .k,
