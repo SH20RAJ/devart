@@ -72,23 +72,32 @@ export default function ArticlesPage() {
       <title>DevArt - Programming Related Articles</title>
 
       <main className="postscontainer">
-        <h1 className="rounded-[12px] m-10 text-xl shadow-2xl p-5">Latest Posts</h1>
+        <h1 className="rounded-[12px] m-10 text-xl shadow-2xl p-5">
+          Latest Posts
+        </h1>
         <div className="container">
           <div className="latestposts">
             {filteredArticles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
-          <div className="sidebar">
-          Hii
+          <div class="post">
+            <div class="usercard">
+              <img src="http://github.com/sh20raj.png" alt="" />
+              <div class="username">
+                <a href="http://github.com/sh20raj">
+                  <span class="tomato">@</span>SH20RAJ
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        
       </main>
       {isLoading && (
         <div className="text-center mt-8">
-          <button class="btn" id="load_more" onclick="getMorePosts()">Loading...
-            </button>
+          <button class="btn" id="load_more" onclick="getMorePosts()">
+            Loading...
+          </button>
         </div>
       )}
       <Footer />
@@ -96,16 +105,23 @@ export default function ArticlesPage() {
   );
 }
 
-
 // Child component to display article card
 function ArticleCard({ article }) {
   return (
     <div className="card rounded-[12px] m-10 text-xl shadow-2xl p-5">
       <Link href={`${article.path}`}>
-        <img src={article.social_image || "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"} alt="Image" />
+        <img
+          src={
+            article.social_image ||
+            "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"
+          }
+          alt="Image"
+        />
         <div className="card-title">{article.title}</div>
         <div className="line"></div>
-        <p className="text-gray-500 small mb-4">{article.tag_list.join(", ")}</p>
+        <p className="text-gray-500 small mb-4">
+          {article.tag_list.join(", ")}
+        </p>
       </Link>{" "}
     </div>
   );
