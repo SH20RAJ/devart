@@ -42,6 +42,7 @@ export default async function RootLayout(pr) {
         <meta name="twitter:description" content={data.description}/>
         <meta name="twitter:image" content={data.social_image}/>
         <meta name="robots" content="index, follow"/> 
+        <link rel="shortcut icon" href="https://github.com/fornfun.png" type="image/x-icon" />
       </head>
       <body>{children}</body>
     </html>

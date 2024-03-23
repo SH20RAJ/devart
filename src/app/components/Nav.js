@@ -2,11 +2,11 @@ import Link from "next/link";
 export default () => {
     return (
         <nav>
-    <a href="../">
+    <Link href="../">
       <div className="logo">
         Blog<span style={{ color: "tomato" }}>X</span>
       </div>
-    </a>
+    </Link>
     <ul>
       <li>
         <Link href="/devart">About</Link>

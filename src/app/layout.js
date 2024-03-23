@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="exvbD16MWo-o_oksJDrekaQ_zwY62YGWEA_XdlE5_XM"
         />
-<link rel="icon" href="https://github.com/fornfun.png" type="image/gif" />
+        <link rel="icon" href="https://github.com/fornfun.png" type="image/gif" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828915420581549"
