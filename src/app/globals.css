@@ -287,7 +287,7 @@ footer {
 }
 
 .post {
-  /* width: 100%; */
+  width: 100%;
   /* background: var(--bbg); */
   /* border: 2px solid var(--black); */
   margin: 20px;
@@ -428,7 +428,10 @@ footer {
     max-width: 100%;
   }
   .post {
+    margin: 0;
     margin-top: 20px;
+    width: 80%;
+    margin: auto;
   }
 }
 

@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import Card2 from "./components/Card2";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import Card2 from "../components/Card2";
 
 export function generateRandomNumber(min, max) {
   // Math.random() generates a random number between 0 and 1
@@ -12,8 +12,10 @@ export function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default function ArticlesPage() {
+export default function ArticlesPage(params) {
+    // console.log("params",params);
   const [articles, setArticles] = useState([]);
+  const [search, setSearch] = useState(params.searchParams.q);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [filteredArticles, setFilteredArticles] = useState([]);
@@ -23,7 +25,7 @@ export default function ArticlesPage() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://dev.to/api/articles/latest/?per_page=22&page=${page}`
+          `https://dev.to/api/articles/search?q=${ search || ""}&per_page=22&page=${page}`
         );
         const data = await response.json();
         setArticles((prevArticles) => [...prevArticles, ...data]);
@@ -69,7 +71,7 @@ export default function ArticlesPage() {
 
   return (
     <>
-      <Nav />
+      <Nav search={search}/>
       <title>DevArt - Programming Related Articles</title>
       <main className="postscontainer">
         <h1 className="rounded-[12px] m-10 text-xl shadow-2xl p-5">
