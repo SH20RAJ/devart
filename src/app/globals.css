@@ -299,6 +299,7 @@ footer {
   top: 0;
   left: 0;
   border-radius: 20px;
+  box-sizing: border-box;
 }
 
 .postscontainer #load_more {
