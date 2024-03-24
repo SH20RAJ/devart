@@ -74,7 +74,7 @@ export default function ArticlesPage({ params }) {
   return (
     <>
       <Nav />
-      <title>{ "DevArt - Programming Related Articles  - "+ params.slug}</title>
+      <title>{params.slug + " - DevArt "}</title>
       <main className="postscontainer">
         <h2>Latest Posts from {params.slug}</h2>
         <section class="text-gray-600 body-font">
