@@ -153,7 +153,12 @@ blockquote {
 .postheadimage {
   border-radius: 10px;
 }
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bolder;
 }
 
@@ -166,6 +171,31 @@ h1,h2,h3,h4,h5,h6 {
   border-radius: 10px;
   margin: 80px;
   margin-left: 20px;
+}
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
 }
 
 footer {
@@ -619,7 +649,6 @@ code {
   font-size: medium;
 }
 
-
 .animated-border {
   display: inline-block;
   font-size: 24px;
@@ -629,7 +658,7 @@ code {
 }
 
 .animated-border::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
