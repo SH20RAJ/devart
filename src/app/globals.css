@@ -564,9 +564,10 @@ footer {
   display: none;
 }
 code {
-  color: azure;
-  background: black;
-  padding: 2px;
+    color: whitesmoke;
+    background: #000;
+    padding: 8px;
+    border-radius: 10px;
 }
 .highlight.js-code-highlight {
   border-left: 2px solid aqua;
