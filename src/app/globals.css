@@ -198,6 +198,29 @@ h6 {
   }
 }
 
+.github-corner {
+  z-index: 9999;
+}
+
+.bg-indigo-500 {
+  background-color: #4c51bf;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
 footer {
   background: #fff;
   text-align: center;
