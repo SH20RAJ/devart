@@ -25,6 +25,35 @@ const ProfileCard = () => {
 
   const { avatar_url, name, bio, followers, public_repos, html_url } = userDetails;
 
+  let scriptdata = `   // Function to fetch repository details from GitHub API
+  async function fetchRepoDetails(username, repoName) {
+    const url = 'https://api.github.com/repos/'+username+'/'+repoName+'';
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching repository details:', error);
+      return null;
+    }
+  }
+  
+  // Function to update the repository card with fetched repo details
+  async function updateRepoCard(username, repoName) {
+    const repoDetails = await fetchRepoDetails(username, repoName);
+    if (repoDetails) {
+      const { name, description, stargazers_count, forks_count, language } = repoDetails;
+      document.getElementById('description').textContent = description || '';
+      document.getElementById('stars').textContent = stargazers_count;
+      document.getElementById('forks').textContent = forks_count;
+      document.getElementById('language').textContent = language || 'N/A';
+      document.querySelector('.max-w-md').classList.add('animated-slide-in');
+    }
+  }
+  
+  // Call the updateRepoCard function with the username and repository name
+  updateRepoCard('sh20raj', 'devart');
+  `;
   return (
     <>
     <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden relative animated-slide-in">
@@ -94,6 +123,8 @@ const ProfileCard = () => {
     </div>
   </div>
 </div>
+<script dangerouslySetInnerHTML={{ __html: scriptdata }} />
+
 
     
 

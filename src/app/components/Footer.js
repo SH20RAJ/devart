@@ -2,8 +2,10 @@
 
 
 export default () => {
+  {console.clear()}
     return (
         <footer>
+          <script>console.clear()</script>
     <b>
       @Blog<span style={{ color: "tomato" }}>X</span>{" "}
     </b>{" "}
