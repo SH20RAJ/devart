@@ -23,11 +23,12 @@ let getArticlesFromDevTo = async (params) => {
   return data;
 };
 
-export async function GET(req) {
+export async function GET(req, res) {
+  console.log(res);
   if (req.method === "GET") {
     try {
       // Fetch articles from Dev.to or your database
-      let articles = await getArticlesFromDevTo(0);
+      let articles = await getArticlesFromDevTo(res.params.id);
 
       // Start building the XML
       let xml = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -44,7 +45,7 @@ export async function GET(req) {
         xml += "<priority>1</priority>"; // Priority can be adjusted based on the importance of the page
         xml += "</url>";
       });
-      
+
       xml += "</urlset>";
 
       // Set the response headers and status
