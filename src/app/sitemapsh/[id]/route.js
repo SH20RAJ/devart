@@ -7,16 +7,12 @@ function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Usage example to generate a random number between 1 and 10000
-const randomNumber = generateRandomNumber(1, 1000);
-console.log(randomNumber);
 
 // Mock function to fetch articles (replace this with your actual implementation)
 let getArticlesFromDevTo = async (params) => {
-  console.log("params", params);
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=1000&page=${
-      0
+    `https://dev.to/api/articles/latest/?per_page=500&page=${
+      params
     }`
   );
   const data = await response.json();
