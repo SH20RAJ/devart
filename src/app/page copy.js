@@ -1,20 +1,32 @@
 "use client";
 import { useState, useEffect } from "react";
-import { debounce } from "lodash";
 import Link from "next/link";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import Card2 from "./components/Card2";
+
+export function generateRandomNumber(min, max) {
+  // Math.random() generates a random number between 0 and 1
+  // We multiply it by (max - min + 1) to include the max value,
+  // then add min to ensure the number falls within the desired range.
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export default function ArticlesPage() {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
+  const [type, setType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [filteredArticles, setFilteredArticles] = useState([]);
+  
 
   useEffect(() => {
     async function fetchArticles() {
       setIsLoading(true);
       try {
+        
         const response = await fetch(
-          `https://dev.to/api/articles?per_page=12&page=${page}`
+          `https://dev.to/api/articles/${type}?per_page=22&page=${page}`
         );
         const data = await response.json();
         setArticles((prevArticles) => [...prevArticles, ...data]);
@@ -33,18 +45,19 @@ export default function ArticlesPage() {
   }, [articles]);
 
   useEffect(() => {
-    async function loadMore() {
-      if (
-        window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight
-      ) {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = document.documentElement.scrollTop;
+      const clientHeight = document.documentElement.clientHeight;
+
+      if (scrollTop + clientHeight >= scrollHeight) {
         setPage((prevPage) => prevPage + 1);
       }
-    }
+    };
 
-    window.addEventListener("scroll", debounce(loadMore, 200));
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", loadMore);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   function handleSearch(event) {
@@ -56,47 +69,62 @@ export default function ArticlesPage() {
 
     setFilteredArticles(filtered);
   }
+  let settype = (a) => {
+    setType("latest");
+    alert(type)
+  }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">Articles</h1>
-
-      <input
-        type="text"
-        placeholder="Search articles..."
-        onChange={handleSearch}
-        className="border p-2 rounded w-full mb-4"
-      />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredArticles.map((article) => (
-          <ArticleCard key={article.id} article={article} />
-        ))}
-      </div>
-
+    <>
+      <Nav />
+      <title>DevArt - Programming Related Articles</title>
+      <main className="postscontainer">
+        <h1 className="rounded-[12px] m-10 text-xl shadow-2xl p-5">
+          Latest Posts || <button onClick={()=>settype("latest")}>Top Articles</button>
+        </h1>
+        <div className="container">
+          <div className="latestposts">
+            {filteredArticles.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </div>
+          <div class="post">
+            
+            <Card2/>
+            
+          </div>
+        </div>
+      </main>
       {isLoading && (
         <div className="text-center mt-8">
-          <p>Loading...</p>
+          <button class="btn" id="load_more" onclick="getMorePosts()">
+            Loading...
+          </button>
         </div>
       )}
-    </div>
+      <Footer />
+    </>
   );
 }
 
 // Child component to display article card
 function ArticleCard({ article }) {
   return (
-    <div className="border p-4 rounded shadow">
-      <img src={article.cover_image} alt="" className="w-full rounded mb-4" />
-      <h2 className="text-xl font-bold mb-2">{article.title}</h2>
-
-      <p className="text-gray-500 mb-4">{article.tag_list.join(", ")}</p>
-
-      <Link href={`./${article.path}`}>
-        <div className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-          Read more
-        </div>
-      </Link>
+    <div className="card rounded-[12px] m-10 text-xl shadow-2xl p-5">
+      <Link href={`${article.path}`}>
+        <img
+          src={
+            article.social_image ||
+            "https://samples-files.com/samples/Images/jpg/1920-1080-sample.jpg"
+          }
+          alt="Image"
+        />
+        <div className="card-title">{article.title}</div>
+        <div className="line"></div>
+        <p className="text-gray-500 small mb-4">
+          {article.tag_list.join(", ")}
+        </p>
+      </Link>{" "}
     </div>
   );
 }
