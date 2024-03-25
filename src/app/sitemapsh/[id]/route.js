@@ -9,9 +9,9 @@ function generateRandomNumber(min, max) {
 
 
 // Mock function to fetch articles (replace this with your actual implementation)
-let getArticlesFromDevTo = async (params) => {
+let getArticlesFromDevTo = async (params,limit) => {
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=500&page=${
+    `https://dev.to/api/articles/latest/?per_page=${limit}&page=${
       params
     }`
   );
@@ -20,11 +20,15 @@ let getArticlesFromDevTo = async (params) => {
 };
 
 export async function GET(req, res) {
-  console.log(res);
+  const url = new URL(req.url)
   if (req.method === "GET") {
     try {
       // Fetch articles from Dev.to or your database
-      let articles = await getArticlesFromDevTo(res.params.id);
+
+      let id = url.searchParams.has("limit") ? url.searchParams.get("limit") : 1000;
+      
+      console.log("id",id);
+      let articles = await getArticlesFromDevTo(res.params.id, id);
 
       // Start building the XML
       let xml = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -33,7 +37,7 @@ export async function GET(req, res) {
       // Add each article URL to the sitemap
       articles.forEach((article) => {
         xml += "<url>";
-        xml += `<loc>https://sh20raj.com${article.path}</loc>`; // Modify URL structure as needed
+        xml += `<loc>${url.origin + article.path}</loc>`; // Modify URL structure as needed
         xml += `<lastmod>${new Date(
           article.published_at
         ).toISOString()}</lastmod>`; // Use published date as last modified

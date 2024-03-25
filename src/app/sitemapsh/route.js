@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 
 
 export async function GET(req) {
+  const url = new URL(req.url)
+
   if (true) {
     try {
       // Fetch articles from Dev.to or your database
@@ -10,9 +12,9 @@ export async function GET(req) {
       let xml = '<?xml version="1.0" encoding="UTF-8"?>';
       xml += '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
       
-      for (let i = 0; i < 1000; i++) {
+      for (let i = 0; i < 1001; i++) {
         xml += "<sitemap>";
-        xml += `<loc>https://sh20raj.com/sitemapsh/${i || Math.floor(Math.random()*1000)}</loc>`; // Modify URL structure as needed
+        xml += `<loc>${url.origin}/sitemapsh/${i || Math.floor(Math.random()*1000)}</loc>`; // Modify URL structure as needed
         xml += "</sitemap>";
 
       }
