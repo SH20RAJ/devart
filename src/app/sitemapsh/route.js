@@ -12,7 +12,7 @@ export async function GET(req) {
       
       for (let i = 0; i < 1000; i++) {
         xml += "<sitemap>";
-        xml += `<loc>https://sh20raj.com/sitemapsh/${Math.floor(Math.random()*1000)}</loc>`; // Modify URL structure as needed
+        xml += `<loc>https://sh20raj.com/sitemapsh/${i || Math.floor(Math.random()*1000)}</loc>`; // Modify URL structure as needed
         xml += "</sitemap>";
 
       }
