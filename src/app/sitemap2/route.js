@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 // Mock function to fetch articles (replace this with your actual implementation)
 let getArticlesFromDevTo = async () => {
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=100000&page=1`
+    `https://dev.to/api/articles/?per_page=100000&page=1`
   );
   const data = await response.json();
   return data;

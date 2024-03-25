@@ -15,7 +15,7 @@ console.log(randomNumber);
 let getArticlesFromDevTo = async (params) => {
   console.log(params);
   const response = await fetch(
-    `https://dev.to/api/articles/latest/?per_page=1000&page=${randomNumber}`
+    `https://dev.to/api/articles/?per_page=1000&page=${randomNumber}`
   );
   const data = await response.json();
   return data;
