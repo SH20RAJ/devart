@@ -61,7 +61,6 @@ export default async function RootLayout(pr) {
               "bestRating": "5",
               "worstRating": "1"
             }
-            }
           }}
         />
 
