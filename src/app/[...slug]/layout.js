@@ -36,7 +36,7 @@ export default async function RootLayout(pr) {
         <JsonLd
           data={{
             "@context": "https://schema.org",
-            "@type": "NewsArticle",
+            "@type": "Product",
             "headline": data.title,
             "description": data.description,
             "datePublished": data.published_timestamp,
@@ -47,23 +47,20 @@ export default async function RootLayout(pr) {
             "image": {
               "@type": "ImageObject",
               "url": data.social_image,
-              "width": 1000, // You can adjust these values as needed
+              "width": 1000,
               "height": 500
             },
             "publisher": {
               "@type": "Organization",
               "name": "DevArt"
             },
-            "review": {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5"
-              },
-              "itemReviewed": {
-                "@type": "CreativeWork",
-                "name": data.title
-              }
+              "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "7462",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
             }
           }}
         />
