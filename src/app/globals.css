@@ -161,6 +161,15 @@ h6 {
   font-weight: bolder;
 }
 
+.postheadimage p:has(iframe) {
+    /* margin: 0; */
+    /* text-align: center; */
+    display: flex;
+    /* align-content: center; */
+    align-items: center;
+    justify-content: center;
+}
+
 .sidebar {
   background: transparent;
   width: 30%;
