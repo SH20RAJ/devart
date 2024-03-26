@@ -37,6 +37,7 @@ export default async function RootLayout(pr) {
           data={{
             "@context": "https://schema.org",
             "@type": "Product",
+            "name": data.title,
             "headline": data.title,
             "description": data.description,
             "datePublished": data.published_timestamp,
