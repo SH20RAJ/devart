@@ -1,3 +1,6 @@
+const randomRating = parseFloat((Math.random() * (5.0 - 1.0) + 1.0).toFixed(1));
+const randomNumber = Math.floor(Math.random() * 10000) + 1;
+
 // export const metadata = {
 //   title: "op - Programming Related Articles",
 //   description: "Get Programming Related Articles on Daily Basis on DevArt a better place to spend time....",
@@ -57,8 +60,8 @@ export default async function RootLayout(pr) {
             },
               "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "7462",
+              "ratingValue": randomRating,
+              "reviewCount": randomNumber,
               "bestRating": "5",
               "worstRating": "1"
             }
