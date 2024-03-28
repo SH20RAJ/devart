@@ -67,7 +67,7 @@ export default async function RootLayout(pr) {
             }
           }}
         />
-
+       <script src="https://cdn.jsdelivr.net/gh/SH20RAJ/ScrollProgressJS@main/ScrollProgress.js" data-autoload="true"></script>
       </head>
       <body>{children}</body>
     </html>
