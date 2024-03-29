@@ -329,7 +329,7 @@ footer {
 }
 
 .latestposts {
-  flex-grow: 4;
+  /* flex-grow: 4; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -519,6 +519,7 @@ footer {
     width: 90%;
     height: 300px;
   }
+
   .postscontainer .card img {
     height: 210px;
   }
@@ -561,6 +562,12 @@ footer {
   height: 40px;
   border-radius: 50%;
   display: inline-block;
+}
+
+.latestposts .card a {
+  display: block;
+  overflow: hidden;
+  height: 100%;
 }
 
 .inline-block {

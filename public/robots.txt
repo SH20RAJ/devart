@@ -1,4 +1,5 @@
 User-agent: *
 Disallow:
 
-Sitemap: /sitemapsh
+User-agent: *
+Allow: /sitemap2

@@ -78,16 +78,16 @@ export default function ArticlesPage(params) {
           Latest Posts 
         </h1>
         <div className="container">
-          <div className="latestposts">
+          <div className="latestposts" class="w-full" style={{maxWidth : "100%"}}>
             {filteredArticles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
-          <div class="post">
+          {/*<div class="post">
             
             <Card2/>
             
-          </div>
+            </div>*/}
         </div>
       </main>
       {isLoading && (

@@ -86,7 +86,7 @@ export default function ArticlesPage() {
       <h1 className="sm:hidden rounded-[12px] m-10 text-xl shadow-2xl p-5">
           <div class="relative">
             <form action="/search">
-            <input class="w-full h-12 text-sm outline-none border mt-3 rounded-lg transition-all pl-7 pr-20 focus:border-blue-600" type="text" placeholder="Search Article, Users etc."/>
+            <input name="q" class="w-full h-12 text-sm outline-none border mt-3 rounded-lg transition-all pl-7 pr-20 focus:border-blue-600" type="text" placeholder="Search Article, Users etc."/>
             <i class="absolute top-7 text-[#bfc6cd] left-2 fa fa-search"></i>
             <button class="absolute right-2 rounded-lg cursor-pointer transition-all hover:bg-blue-900 top-4 h-10 w-16 bg-blue-500 text-white text-sm">Search</button>
             </form>
