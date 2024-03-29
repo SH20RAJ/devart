@@ -17,6 +17,9 @@ export default function ArticlesPage() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [filteredArticles, setFilteredArticles] = useState([]);
+  const [topArticles, setToprticles] = useState([]);
+
+
 
   useEffect(() => {
     async function fetchArticles() {
@@ -32,6 +35,14 @@ export default function ArticlesPage() {
         console.error("Error fetching articles:", error);
         setIsLoading(false);
       }
+      
+      (async () => {
+    var topArticles = await (await fetch('https://dev.to/api/articles/?per_page=40&page=1')).json()
+    setToprticles(topArticles);
+  })();
+
+
+
     }
 
     fetchArticles();
@@ -72,6 +83,17 @@ export default function ArticlesPage() {
       <Nav />
       <title>DevArt - Programming Related Articles</title>
       <main className="postscontainer">
+      <h1 className="sm:hidden rounded-[12px] m-10 text-xl shadow-2xl p-5">
+          <div class="relative">
+            <form action="/search">
+            <input class="w-full h-12 text-sm outline-none border mt-3 rounded-lg transition-all pl-7 pr-20 focus:border-blue-600" type="text" placeholder="Search Article, Users etc."/>
+            <i class="absolute top-7 text-[#bfc6cd] left-2 fa fa-search"></i>
+            <button class="absolute right-2 rounded-lg cursor-pointer transition-all hover:bg-blue-900 top-4 h-10 w-16 bg-blue-500 text-white text-sm">Search</button>
+            </form>
+        </div>
+
+
+        </h1>
         <h1 className="rounded-[12px] m-10 text-xl shadow-2xl p-5">
           Latest Posts 
         </h1>
@@ -82,9 +104,11 @@ export default function ArticlesPage() {
             ))}
           </div>
           <div class="post">
-            
-            <Card2/>
-            
+            <h2>Top Articles</h2>
+            {topArticles.map((article) => (
+              <TopArticleCard key={article.id} article={article} />
+            ))}
+
           </div>
         </div>
       </main>
@@ -112,6 +136,20 @@ function ArticleCard({ article }) {
           }
           alt="Image"
         />
+        <div className="card-title">{article.title}</div>
+        <div className="line"></div>
+        <p className="text-gray-500 small mb-4">
+          {article.tag_list.join(", ")}
+        </p>
+      </Link>{" "}
+    </div>
+  );
+}
+// Child component to display article card
+function TopArticleCard({ article }) {
+  return (
+    <div className="w-full rounded-[12px] m-0 text-xl shadow-2xl p-5">
+      <Link href={`${article.path}`}>
         <div className="card-title">{article.title}</div>
         <div className="line"></div>
         <p className="text-gray-500 small mb-4">

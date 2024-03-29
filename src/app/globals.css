@@ -355,7 +355,7 @@ footer {
   margin: 20px;
   margin-top: 0;
   /* border-radius: 20px; */
-  box-shadow: rgba(9, 9, 121, 0.7) 0px 15px 25px -5px;
+  /* box-shadow: rgba(9, 9, 121, 0.7) 0px 15px 25px -5px; */
   position: sticky;
   display: block;
   top: 0;
