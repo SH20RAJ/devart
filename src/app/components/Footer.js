@@ -32,7 +32,6 @@ export default () => {
             <li>
               <Link href="/devart/disclaimer-53h" class="text-gray-500 transition hover:opacity-75"> Privacy Policy </Link>
             </li>
-
             <li>
               <Link href="/devart/about-us-1jm9" class="text-gray-500 transition hover:opacity-75"> About </Link>
             </li>
