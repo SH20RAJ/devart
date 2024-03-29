@@ -23,12 +23,12 @@ export default ({search }) => {
     </div>
 </form>
 
-      <li>
+      {/* <li>
         <Link href="/devart">About</Link>
       </li>
       <li>
         <a href="/api/sitemap">Sitemap</a>
-      </li>
+      </li> */}
       {/* <li>
         <a href="/sh20raj">SH20RAJ</a>
       </li> */}
