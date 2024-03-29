@@ -1,4 +1,3 @@
-import { snakeCase } from "lodash";
 import React, { useEffect, useState } from "react";
 
 const ProfileCard = () => {
