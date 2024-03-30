@@ -84,8 +84,8 @@ export default () => {
                 CXDIIN
               </Link>
             </li>
-            <Link href="https://visitorbadge.io/status?path=DevArt" class="hidden">
-              <img src="https://api.visitorbadge.io/api/visitors?path=DevArt&countColor=%23263759" />
+            <Link href="https://visitorbadge.io/status?path=DevArt" class="">
+              <img src="https://api.visitorbadge.io/api/visitors?path=DevArt&labelColor=%23ba68c8&countColor=%23ff8a65&style=flat" />
             </Link>
             <img src="https://bit.ly/DevArtTracker" class="hidden" />
           </ul>
