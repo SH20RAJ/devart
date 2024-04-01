@@ -1,5 +1,6 @@
 import "./globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function RootLayout({ children }) {
   let ga_id = "G-CWL59Y4TR7";
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
         ></Script>
       </head>
       <body>{children}</body>
+      <Analytics/>
     </html>
   );
 }
