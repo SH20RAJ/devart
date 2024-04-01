@@ -12,7 +12,7 @@ export async function GET(req) {
       let xml = '<?xml version="1.0" encoding="UTF-8"?>';
       xml += '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
       
-      for (let i = 0; i < 1001; i++) {
+      for (let i = 1; i < 1001; i++) {
         xml += "<sitemap>";
         xml += `<loc>${url.origin}/sitemapsh/${i || Math.floor(Math.random()*1000)}</loc>`; // Modify URL structure as needed
         xml += "</sitemap>";
