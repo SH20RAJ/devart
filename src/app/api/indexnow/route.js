@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 // Replace with your actual API key and URL
 const apiKey = '11bf36c257104618b69465f71c342d6c';
 let urlToSubmit = 'https://sh20raj.com/anishamalde/a-love-letter-to-gen-z-from-gen-y-understanding-reacts-evolution-4abm';
@@ -54,9 +56,16 @@ fetch('https://api.indexnow.org/IndexNow', {
 // Make an HTTP POST request to the IndexNow API
 
 
-        
-    return Response.json({msg:"submitted",indexdata: await indexit(),host : host, apiKey: apiKey,keyLocation: keyLocation, url: urlToSubmit})
-
+    let result = {msg:"submitted",indexdata: await indexit(),host : host, apiKey: apiKey,keyLocation: keyLocation, url: urlToSubmit};
+    // return Response.json()
+    return new NextResponse(result, {
+        status: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        }
+      });
 
 }
 
