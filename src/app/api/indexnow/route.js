@@ -58,7 +58,7 @@ fetch('https://api.indexnow.org/IndexNow', {
 
     let result = {msg:"submitted",indexdata: await indexit(),host : host, apiKey: apiKey,keyLocation: keyLocation, url: urlToSubmit};
     // return Response.json()
-    return new NextResponse(result, {
+    return  NextResponse.json(result, {
         status: 200,
         headers: {
           'Access-Control-Allow-Origin': '*',
