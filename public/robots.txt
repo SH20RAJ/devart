@@ -1,5 +1,8 @@
 User-agent: *
 Disallow:
 
+Sitemap: https://www.forn.fun/sitemap
+
+
 User-agent: *
 Allow: /sitemap2
