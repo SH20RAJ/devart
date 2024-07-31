@@ -16,11 +16,8 @@ export default function RootLayout({ children }) {
           href="https://github.com/fornfun.png"
           type="image/gif"
         />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828915420581549"
-          crossorigin="anonymous"
-        ></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828915420581549"
+     crossorigin="anonymous"></script>
         {/* <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-CWL59Y4TR7"
