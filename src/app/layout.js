@@ -83,6 +83,8 @@ export const yadexmeta = async () => {
   });
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/97056210" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828915420581549"
+     crossorigin="anonymous"></script>
 
   `
 return (
