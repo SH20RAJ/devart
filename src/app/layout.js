@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
       <body>{children}</body>
       <Analytics/>
           <yadexmat/>
-          
+          <a href="https://www.terabox.tech/" rel="dofollow">Terabox Video Player</a>
     </html>
   );
 }
